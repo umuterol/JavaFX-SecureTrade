@@ -3,23 +3,27 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="570.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="anchorBuy" prefHeight="700.0" prefWidth="570.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.buy">
    <children>
-      <VBox fx:id="anchorBuy" layoutY="6.0" prefHeight="700.0" prefWidth="570.0" AnchorPane.bottomAnchor="-6.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="6.0">
+      <VBox layoutX="14.0" layoutY="4.0" prefHeight="693.0" prefWidth="570.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="-14.0" AnchorPane.topAnchor="4.0">
          <children>
             <HBox prefHeight="40.0" prefWidth="570.0">
                <children>
-                  <Button fx:id="btnBackToProduct" alignment="TOP_LEFT" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="105.0" stylesheets="@../css/style.css">
+                  <Button fx:id="btnBackToProduct" alignment="TOP_LEFT" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" mnemonicParsing="false" onAction="#btnBackToProduct_Click" prefHeight="37.0" prefWidth="105.0" stylesheets="@../css/style.css">
                      <graphic>
-                        <ImageView fx:id="backToProduct" fitHeight="38.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="38.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../img/back.png" />
                            </image>
@@ -31,6 +35,7 @@
                   <Insets bottom="20.0" />
                </VBox.margin>
             </HBox>
+            <Separator prefWidth="200.0" />
             <Label text="Ürün Bilgileri:">
                <VBox.margin>
                   <Insets left="10.0" />
@@ -38,7 +43,7 @@
             </Label>
             <HBox prefHeight="110.0" prefWidth="570.0">
                <children>
-                  <ImageView fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imgBuyProduct" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                      <viewport>
                         <Rectangle2D />
                      </viewport>
@@ -51,12 +56,12 @@
                   </ImageView>
                   <VBox alignment="CENTER" prefHeight="150.0" prefWidth="365.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label text="Monster BilgisayarMonster BilgisayarMonster BilgisayarMonster BilgisayarMonster BilgisayarMonster Bilgisayar">
+                        <Label fx:id="lblBuyProductName" text="Monster BilgisayarMonster BilgisayarMonster BilgisayarMonster BilgisayarMonster BilgisayarMonster Bilgisayar">
                            <VBox.margin>
                               <Insets top="50.0" />
                            </VBox.margin>
                         </Label>
-                        <Label text="12000 TL">
+                        <Label fx:id="lblBuyProductPrice" text="12000 TL">
                            <VBox.margin>
                               <Insets top="5.0" />
                            </VBox.margin>
@@ -70,6 +75,7 @@
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
             </HBox>
+            <Separator prefWidth="200.0" />
             <Label text="Satıcı Bilgileri:">
                <padding>
                   <Insets left="10.0" />
@@ -77,7 +83,7 @@
             </Label>
             <HBox prefHeight="56.0" prefWidth="570.0">
                <children>
-                  <ImageView fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imgBuyDealer" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                      <viewport>
                         <Rectangle2D />
                      </viewport>
@@ -87,12 +93,17 @@
                   </ImageView>
                   <VBox alignment="CENTER" prefHeight="150.0" prefWidth="439.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label text="umut can erol">
+                        <Label fx:id="lblBuyDealerName" text="umut can erol">
                            <VBox.margin>
                               <Insets />
                            </VBox.margin>
                         </Label>
-                        <Label text="waapsitee@gmail.com">
+                        <Label fx:id="lblBuyDealerPhone" text="05414451016">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="lblBuyDealerMail" text="waapsitee@gmail.com">
                            <VBox.margin>
                               <Insets top="5.0" />
                            </VBox.margin>
@@ -107,6 +118,7 @@
                   <Insets left="10.0" />
                </padding>
             </HBox>
+            <Separator prefWidth="200.0" />
             <Label text="Alıcı Bilgileri">
                <VBox.margin>
                   <Insets left="10.0" top="25.0" />
@@ -115,11 +127,105 @@
                   <Font name="Calibri Light" size="27.0" />
                </font>
             </Label>
-            <HBox prefHeight="317.0" prefWidth="570.0">
-               <VBox.margin>
-                  <Insets left="10.0" right="10.0" />
-               </VBox.margin>
-            </HBox>
+            <VBox prefHeight="325.0" prefWidth="570.0" style="-fx-background-color: #e0e0e0;;">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="59.0" prefWidth="550.0">
+                     <children>
+                        <TextField fx:id="txtBuyClientName" promptText="Ad Soyad" styleClass="input-text" stylesheets="@../css/style.css" HBox.hgrow="ALWAYS" />
+                        <TextField fx:id="txtBuyClientPhone" promptText="Telefon Numarası" styleClass="input-text" stylesheets="@../css/style.css" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets left="40.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="530.0">
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="10.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label text="Güvenli Teslimat Şehri: " HBox.hgrow="ALWAYS" />
+                        <ComboBox fx:id="cbBuyClientCity" prefHeight="30.0" prefWidth="203.0" promptText="Şehir Seçin" styleClass="input-text" stylesheets="@../css/style.css" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="530.0">
+                     <children>
+                        <Label text="Güvenli Teslimat İlçesi: " HBox.hgrow="ALWAYS" />
+                        <ComboBox fx:id="cbBuyClientTown" prefHeight="30.0" prefWidth="203.0" promptText="İlçe Seçin" styleClass="input-text" stylesheets="@../css/style.css" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="530.0">
+                     <children>
+                        <Label text="Güvenli Teslimat Şubemiz: " HBox.hgrow="ALWAYS" />
+                        <ComboBox fx:id="cbBuyClientBranch" prefHeight="30.0" prefWidth="203.0" promptText="Şube Seçin" styleClass="input-text" stylesheets="@../css/style.css" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <VBox prefHeight="138.0" prefWidth="570.0" style="-fx-background-color: lightblue;">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="22.0" prefWidth="570.0">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="130.0" style="-fx-background-color: FFFFFF;" text="Kart Numarası*">
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Pane prefHeight="22.0" prefWidth="126.0" HBox.hgrow="ALWAYS" />
+                              <Label prefHeight="18.0" prefWidth="138.0" style="-fx-background-color: #FFFFFF;" text="Güvenlik Kodu (CVV)*" HBox.hgrow="ALWAYS" />
+                              <Pane prefHeight="22.0" prefWidth="118.0" HBox.hgrow="ALWAYS" />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="530.0">
+                           <children>
+                              <TextField fx:id="txtBuyClientCardNumber" promptText="XXXX-XXXX-XXXX-XXXX" styleClass="input-text" stylesheets="@../css/style.css" HBox.hgrow="ALWAYS" />
+                              <TextField fx:id="txtBuyClientCardCvv" promptText="XXX" styleClass="input-text" stylesheets="@../css/style.css" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets left="40.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="20.0" right="40.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="56.0" prefWidth="570.0">
+                           <children>
+                              <Button fx:id="btnBuy" mnemonicParsing="false" onAction="#btnBuy_Click" prefHeight="42.0" prefWidth="122.0" styleClass="buy-btn" stylesheets="@../css/style.css" text="Güvenle Öde" textFill="WHITE" HBox.hgrow="ALWAYS" />
+                           </children>
+                           <VBox.margin>
+                              <Insets right="40.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </VBox>
+               </children>
+            </VBox>
          </children>
       </VBox>
    </children>

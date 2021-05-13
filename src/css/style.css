@@ -20,7 +20,7 @@
     -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 ,10.0);
 }
 
-.chosen-fruit-card{
+.productDetails-card{
     -fx-background-color: #F16C31;
     -fx-background-radius: 30;
 }
@@ -66,4 +66,21 @@
 
 #anchorBuy{
 	-fx-background-color:white;
+}
+
+.input-text{
+	-fx-background-color: #FFFFFF;
+    -fx-background-radius: 5;
+    -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 ,10.0);
+}
+
+.buy-btn{
+    -fx-background-color: #F16C31;
+    -fx-background-radius: 100;
+}
+
+.buy-btn:hover{
+    -fx-background-color: #0000ff;
+    -fx-padding: 15px 15px 15px 15px;
+    -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.15), 10.0 , 0.0 , 0.0 ,15.0);
 }

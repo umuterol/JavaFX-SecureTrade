@@ -4,16 +4,14 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
 import model.Product;
 
 public class productDetails {
@@ -25,7 +23,7 @@ public class productDetails {
     private URL location;
 
     @FXML
-    private AnchorPane anchor_itemDetails;
+    private AnchorPane anchorProductDetails;
 
     @FXML
     private Label lblProductName;
@@ -36,7 +34,6 @@ public class productDetails {
     @FXML
     private ImageView imgProduct;
 
-
     @FXML
     private Button btnSecureBuy;
 
@@ -45,7 +42,7 @@ public class productDetails {
 
     @FXML
     private TextArea txtareaDescription;
-    
+
     @FXML
     private ImageView imgDealer;
 
@@ -57,9 +54,9 @@ public class productDetails {
 
     @FXML
     private Label lblDealerMail;
-    
+
     private Product product;
-    
+
     public void setForm(Product product) {
     	this.product=product;
     	
@@ -73,9 +70,31 @@ public class productDetails {
     @FXML
     void btnSecureBuy_Click(ActionEvent event) {
     	
-    
+    	 try {
+  	    	
+    		 FXMLLoader fxmlLoader = new FXMLLoader();
+             fxmlLoader.setLocation(getClass().getResource("/views/buy.fxml"));
+             AnchorPane anchorPane = fxmlLoader.load();
+
+             buy controller = fxmlLoader.getController();
+             //controller.setForm(this.product);
+
+           
+             anchorProductDetails.getChildren().setAll(anchorPane);
+     	    
+     	  
+    	  
+    		
+    		} catch(Exception e) {
+    			e.printStackTrace();
+    		}
+
 
     }
-    
+
+
+
 }
+
+
 
