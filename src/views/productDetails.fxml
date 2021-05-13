@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchor_itemDetails" prefHeight="700.0" prefWidth="573.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.productDetails">
+   <children>
+      <VBox layoutX="81.0" layoutY="42.0" prefHeight="700.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="405.0" prefWidth="500.0" stylesheets="@../css/style.css">
+               <children>
+                  <HBox prefHeight="60.0" prefWidth="335.0">
+                     <children>
+                        <Label fx:id="lblProductName" prefHeight="44.0" prefWidth="394.0" text="Monster i7" textFill="WHITE">
+                           <font>
+                              <Font name="Cambria" size="36.0" />
+                           </font>
+                        </Label>
+                        <Pane prefHeight="44.0" prefWidth="125.0" HBox.hgrow="ALWAYS" />
+                        <Label fx:id="lblPrductPrice" alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="223.0" text="99999 TL" textFill="WHITE">
+                           <font>
+                              <Font name="Cambria" size="36.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="20.0" right="30.0" top="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <ImageView fx:id="imgProduct" fitHeight="170.0" fitWidth="285.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Desktop/computer.jpg" />
+                     </image>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <Button fx:id="btnSecureBuy" mnemonicParsing="false" onAction="#btnSecureBuy_Click" prefHeight="50.0" prefWidth="270.0" styleClass="add-btn" stylesheets="@../css/style.css" text="GÜVENLE ÖDE" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="20.0" top="30.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+               <styleClass>
+                  <String fx:value="chosen-fruit-card" />
+                  <String fx:value="shadow" />
+               </styleClass>
+            </VBox>
+            <TabPane prefHeight="295.0" prefWidth="573.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Ürün Özellikleri">
+                     <content>
+                        <ListView fx:id="lwFeature" opacity="0.8" prefHeight="200.0" prefWidth="200.0" />
+                     </content>
+                  </Tab>
+                 <Tab text="Açıklama">
+                     <content>
+                        <TextArea fx:id="txtareaDescription" editable="false" opacity="0.8" prefHeight="177.0" prefWidth="573.0" style="-fx-background-color: blue;" text="Açıklama">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextArea>
+                     </content>
+                  </Tab>
+                  <Tab text="Satıcı Bİlgileri">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <HBox layoutX="113.0" layoutY="83.0" prefHeight="266.0" prefWidth="573.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <ImageView fx:id="imgDealer" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../Pictures/Camera%20Roll/WIN_20210404_12_27_13_Pro.jpg" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets left="5.0" top="5.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <VBox prefHeight="266.0" prefWidth="198.0">
+                                       <children>
+                                          <Label fx:id="lblDealerName" text="Umut Can Erol">
+                                             <VBox.margin>
+                                                <Insets left="10.0" top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label fx:id="lblDealerPhone" text="05414451016">
+                                             <VBox.margin>
+                                                <Insets left="10.0" top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label fx:id="lblDealerMail" text="waapsitee@gmail.com">
+                                             <VBox.margin>
+                                                <Insets left="10.0" top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </TabPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
