@@ -12,6 +12,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import model.Product;
 
 public class productDetails {
@@ -54,6 +55,9 @@ public class productDetails {
 
     @FXML
     private Label lblDealerMail;
+    
+    @FXML
+    private VBox vboxProductDetails;
 
     private Product product;
 
@@ -78,11 +82,10 @@ public class productDetails {
 
              buy controller = fxmlLoader.getController();
              //controller.setForm(this.product);
-
-           
-             anchorProductDetails.getChildren().setAll(anchorPane);
+             
+             AnchorPane thisAnchor=(AnchorPane)vboxProductDetails.getParent();
+             thisAnchor.getChildren().setAll(controller.getVboxBuy());
      	    
-     	  
     	  
     		
     		} catch(Exception e) {
@@ -91,6 +94,14 @@ public class productDetails {
 
 
     }
+
+	public VBox getVboxProductDetails() {
+		return vboxProductDetails;
+	}
+
+	public void setVboxProductDetails(VBox vboxProductDetails) {
+		this.vboxProductDetails = vboxProductDetails;
+	}
 
 
 

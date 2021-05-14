@@ -2,6 +2,7 @@ package controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 
 public class buy {
 
@@ -70,6 +72,18 @@ public class buy {
 
     @FXML
     private Button btnBuy;
+    
+    public VBox getVboxBuy() {
+		return vboxBuy;
+	}
+
+	public void setVboxBuy(VBox vboxBuy) {
+		this.vboxBuy = vboxBuy;
+	}
+
+	@FXML
+    private VBox vboxBuy;
+
 
     @FXML
     void btnBackToProduct_Click(ActionEvent event) {
@@ -80,11 +94,11 @@ public class buy {
 	        fxmlLoader.setLocation(getClass().getResource("/views/productDetails.fxml"));
             AnchorPane anchorPane = fxmlLoader.load();
 
-            //productDetails controller = fxmlLoader.getController();
+            productDetails controller = fxmlLoader.getController();
             //controller.setForm(this.product);
 
-          
-            anchorBuy.getChildren().setAll(anchorPane);
+            AnchorPane thisAnchor=(AnchorPane)vboxBuy.getParent();
+            thisAnchor.getChildren().setAll(controller.getVboxProductDetails());
     	    
     	  
    	  

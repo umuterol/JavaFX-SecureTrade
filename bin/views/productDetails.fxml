@@ -17,7 +17,7 @@
 
 <AnchorPane fx:id="anchorProductDetails" prefHeight="700.0" prefWidth="573.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.productDetails">
    <children>
-      <VBox layoutX="81.0" layoutY="42.0" prefHeight="700.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox fx:id="vboxProductDetails" layoutX="81.0" layoutY="42.0" prefHeight="700.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <VBox alignment="CENTER" prefHeight="405.0" prefWidth="500.0" styleClass="productDetails-card" stylesheets="@../css/style.css">
                <children>
