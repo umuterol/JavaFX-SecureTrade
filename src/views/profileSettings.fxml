@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorProfileSettings" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.profileSettings">
+   <children>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1315.0" stylesheets="@../css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <VBox prefHeight="810.0" prefWidth="325.0" spacing="70.0" styleClass="primary-color" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="325.0" spacing="15.0">
+                     <VBox.margin>
+                        <Insets top="50.0" />
+                     </VBox.margin>
+                     <children>
+                        <Circle fx:id="imgProfileCircle" fill="DODGERBLUE" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Label text="Umut EROL" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Button mnemonicParsing="false" style="-fx-background-color: #242551; -fx-background-radius: 30;" text="Profili Düzenle" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="209.0" prefWidth="325.0" spacing="15.0">
+                     <children>
+                        <HBox fx:id="menuSettingProfil" alignment="CENTER" onMousePressed="#menuSettingProfil_Pressed" prefHeight="45.0" prefWidth="325.0" styleClass="profile-menu-select">
+                           <children>
+                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/profile-user-icon.png" />
+                                 </image>
+                              </ImageView>
+                              <Label prefHeight="27.0" prefWidth="192.0" text="Profil" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="menuSettingPassword" alignment="CENTER" onMousePressed="#menuSettingPassword_Pressed" prefHeight="45.0" prefWidth="325.0" styleClass="profile-menu-select">
+                           <children>
+                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/profile-password-icon.png" />
+                                 </image>
+                              </ImageView>
+                              <Label prefHeight="27.0" prefWidth="192.0" text="Şifre Değiştir" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="menuSettingProduct" alignment="CENTER" onMousePressed="#menuSettingProduct_Pressed" prefHeight="45.0" prefWidth="325.0" styleClass="profile-menu-select">
+                           <children>
+                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/profile-product-icon.png" />
+                                 </image>
+                              </ImageView>
+                              <Label prefHeight="27.0" prefWidth="192.0" text="İlan İşlemleri" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="menuSettingOrder" alignment="CENTER" onMousePressed="#menuSettingOrder_Pressed" prefHeight="45.0" prefWidth="325.0" styleClass="profile-menu-select">
+                           <children>
+                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/profile-delivery.png" />
+                                 </image>
+                              </ImageView>
+                              <Label prefHeight="27.0" prefWidth="192.0" text="Siparişlerim" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </left>
+         <center>
+            <AnchorPane fx:id="anchorMenu" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox fx:id="vboxProfileSettings" alignment="CENTER" layoutX="389.0" layoutY="339.0" prefHeight="200.0" prefWidth="100.0" spacing="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="72.0" prefWidth="890.0" style="-fx-background-radius: 10;" styleClass="secondary-color">
+                           <children>
+                              <Label prefHeight="17.0" prefWidth="992.0" text="Profil Ayarları" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="30.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <VBox prefHeight="589.0" prefWidth="890.0" spacing="30.0" style="-fx-background-radius: 15;" styleClass="secondary-color">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="207.0" prefWidth="177.0" spacing="10.0">
+                                       <children>
+                                          <ImageView fx:id="imgProfile" fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../../Pictures/Camera%20Roll/WIN_20210404_12_27_13_Pro.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <Button fx:id="btnProfileUploadImage" contentDisplay="TOP" graphicTextGap="3.0" mnemonicParsing="false" onAction="#btnProfileUploadImage_Click" prefHeight="46.0" prefWidth="136.0" style="-fx-background-color: gray;" text="Fotoğraf Yükle" textFill="WHITE">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                             <graphic>
+                                                <ImageView fitHeight="27.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../img/imagefile-icon.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <Label prefHeight="17.0" prefWidth="992.0" text="Hesap bilgileri" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <HBox alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="890.0">
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="136.0" text="Ad&amp;Soyad" textFill="WHITE">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <Pane prefHeight="33.0" prefWidth="120.0" />
+                                    <TextField fx:id="txtProfileName" prefHeight="25.0" prefWidth="278.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="890.0">
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="136.0" text="Email" textFill="WHITE">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <Pane prefHeight="33.0" prefWidth="120.0" />
+                                    <TextField fx:id="txtProfileMail" prefHeight="25.0" prefWidth="278.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="890.0">
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="136.0" text="Telefon Numarası" textFill="WHITE">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <Pane prefHeight="33.0" prefWidth="120.0" />
+                                    <TextField fx:id="txtProfilePhone" prefHeight="25.0" prefWidth="278.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="56.0" prefWidth="790.0">
+                                 <children>
+                                    <Button fx:id="btnProfileSaveChanged" mnemonicParsing="false" onAction="#btnProfileSaveChanged_Click" prefHeight="49.0" prefWidth="178.0" styleClass="profile-btnSaveChanges" text="Değişiklikleri Kaydet" textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="50.0" />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="30.0" left="50.0" right="50.0" top="30.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

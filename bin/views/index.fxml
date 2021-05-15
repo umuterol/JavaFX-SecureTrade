@@ -1,7 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
-	
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-	
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.index">
-	<!-- TODO Add Nodes -->
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorIndex" prefHeight="810.0" prefWidth="1315.0" style="-fx-background-color: white;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.index">
+   <children>
+      <BorderPane layoutX="332.0" layoutY="98.0" prefHeight="810.0" prefWidth="1315.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <VBox alignment="CENTER" prefHeight="810.0" prefWidth="809.0" styleClass="secondary-color" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="G" textFill="#6c82a8">
+                           <font>
+                              <Font name="Monospaced Regular" size="96.0" />
+                           </font>
+                        </Label>
+                        <Label text="E" textFill="#da529fd1">
+                           <font>
+                              <Font size="96.0" />
+                           </font>
+                        </Label>
+                        <Label text="T" textFill="#21d77cd1">
+                           <font>
+                              <Font size="120.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Label text="Şubelerimiz sizin güvenliğiniz" textFill="WHITE">
+                     <font>
+                        <Font name="Monospaced Regular" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </left>
+         <center>
+            <AnchorPane fx:id="anchorLoginRegister" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox fx:id="vboxLogin" alignment="TOP_CENTER" prefHeight="810.0" prefWidth="506.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <ImageView fitHeight="164.0" fitWidth="257.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../Desktop/horizontal_on_white_by_logaster.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets top="100.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label text="HOŞGELDİNİZ">
+                           <font>
+                              <Font name="Cambria Bold" size="35.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="50.0" />
+                           </VBox.margin>
+                        </Label>
+                        <HBox alignment="CENTER" prefHeight="62.0" prefWidth="506.0">
+                           <children>
+                              <Label prefHeight="20.0" prefWidth="84.0" text="Email">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtLoginMail" prefHeight="25.0" prefWidth="224.0" styleClass="txt-login" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="62.0" prefWidth="506.0">
+                           <children>
+                              <Label prefHeight="20.0" prefWidth="84.0" text="Şifre">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <PasswordField prefHeight="26.0" prefWidth="224.0" styleClass="txt-login" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="67.0" prefWidth="506.0">
+                           <children>
+                              <Label prefHeight="17.0" prefWidth="137.0" text="Henüz hesabınız yok mu?" />
+                              <Hyperlink fx:id="linkLoginToRegister" onMouseClicked="#linkLoginToRegister_Click" styleClass="link" text="Kayıt ol" />
+                              <Pane prefHeight="67.0" prefWidth="14.0" />
+                              <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#btnLogin_Click" prefHeight="39.0" prefWidth="107.0" styleClass="btn-login" text="Giriş Yap" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="506.0">
+                           <children>
+                              <Pane prefHeight="40.0" prefWidth="208.0" HBox.hgrow="ALWAYS" />
+                              <Pane prefHeight="40.0" prefWidth="47.0" HBox.hgrow="ALWAYS" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
 </AnchorPane>

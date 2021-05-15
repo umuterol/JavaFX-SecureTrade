@@ -84,3 +84,97 @@
     -fx-padding: 15px 15px 15px 15px;
     -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.15), 10.0 , 0.0 , 0.0 ,15.0);
 }
+
+
+/* Profile */
+.primary-color{
+	-fx-background-color: #13123A;
+	
+}
+.secondary-color{
+	-fx-background-color: #00002C;
+}
+
+
+.profile-menu-select:hover{
+	-fx-background-color: #3C3D5B;
+	}
+
+
+
+.profile-btnSaveChanges{
+	-fx-background-color:  #242551;
+	-fx-background-radius:10;
+    -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.15), 10.0 , 0.0 , 0.0 ,15.0);
+}
+
+.profile-btnSaveChanges:hover{
+	-fx-background-color: green;
+}
+
+.profile-btnPassword{
+	
+	-fx-background-color:  green;
+	-fx-background-radius:10;
+    -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.15), 10.0 , 0.0 , 0.0 ,15.0);
+	
+}
+
+.profile-btnPassword:hover{
+-fx-padding: 17px 17px 17px 17px;	
+}
+
+
+.txt-login{
+	
+	-fx-border-color:#00002C;
+	-fx-border-width: 0 0 1 0;
+	-fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.15), 10.0 , 0.0 , 0.0 ,15.0);
+	}
+
+
+
+.btn-login{
+	-fx-background-color: #13123A;
+	
+}
+
+
+.btn-login:hover{
+	  -fx-padding: 12px 12px 12px 12px;
+	  -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.15), 10.0 , 0.0 , 0.0 ,15.0);
+}
+
+.link:hover{
+	-fx-font-size:15;
+}
+
+.txt-register{
+	
+	-fx-border-color:green;
+	-fx-border-width: 0 0 1 0;
+	-fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.15), 10.0 , 0.0 , 0.0 ,15.0);
+	}
+
+
+
+
+.btn-register{
+	-fx-background-color: green;
+	
+}
+
+
+.btn-register:hover{
+	  -fx-padding: 12px 12px 12px 12px;
+	  -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.15), 10.0 , 0.0 , 0.0 ,15.0);
+}
+
+
+
+
+
+
+
+
+
