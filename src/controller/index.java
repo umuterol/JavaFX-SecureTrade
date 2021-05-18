@@ -8,6 +8,7 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
 public class index {
@@ -29,8 +30,19 @@ public class index {
     
     @FXML
     private AnchorPane anchorIndex;
+    
+    @FXML
+    private BorderPane borderPaneIndex;
 
-    public VBox getVboxLogin() {
+    public BorderPane getBorderPaneIndex() {
+		return borderPaneIndex;
+	}
+
+	public void setBorderPaneIndex(BorderPane borderPaneIndex) {
+		this.borderPaneIndex = borderPaneIndex;
+	}
+
+	public VBox getVboxLogin() {
 		return vboxLogin;
 	}
 
@@ -38,30 +50,31 @@ public class index {
 		this.vboxLogin = vboxLogin;
 	}
 
-	@FXML
-    void btnLogin_Click(ActionEvent event) {
-		
-		 try {
-	 	    	
-    		 FXMLLoader fxmlLoader = new FXMLLoader();
-             fxmlLoader.setLocation(getClass().getResource("../views/shop.fxml"));
-             AnchorPane anchorPane = fxmlLoader.load();
 
-             shop controller = fxmlLoader.getController();
-             
-             
-             AnchorPane thisAnchor=(AnchorPane)vboxLogin.getParent().getParent().getParent();
-             thisAnchor.getChildren().setAll(controller.getBorderPaneShop());
-     	    
-    	  
-    		
-    		} catch(Exception e) {
-    			e.printStackTrace();
-    		}
 
-    }
+	  @FXML
+	    void btnLogin_Pressed(MouseEvent event) {
+		  
 
-    
+			 try {
+		 	    	
+	    		 FXMLLoader fxmlLoader = new FXMLLoader();
+	             fxmlLoader.setLocation(getClass().getResource("../views/shop.fxml"));
+	             AnchorPane anchorPane = fxmlLoader.load();
+
+	             shop controller = fxmlLoader.getController();
+	             
+	             
+	             AnchorPane thisAnchor=(AnchorPane)vboxLogin.getParent().getParent().getParent();
+	             thisAnchor.getChildren().setAll(controller.getBorderPaneShop());
+	     	    
+	    	  
+	    		
+	    		} catch(Exception e) {
+	    			e.printStackTrace();
+	    		}
+
+	    }
 
     @FXML
     void linkLoginToRegister_Click(MouseEvent event) {

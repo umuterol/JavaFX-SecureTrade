@@ -17,7 +17,7 @@
 
 <AnchorPane fx:id="anchorIndex" prefHeight="810.0" prefWidth="1315.0" style="-fx-background-color: white;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.index">
    <children>
-      <BorderPane layoutX="332.0" layoutY="98.0" prefHeight="810.0" prefWidth="1315.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane fx:id="borderPaneIndex" layoutX="332.0" layoutY="98.0" prefHeight="810.0" prefWidth="1315.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
             <VBox alignment="CENTER" prefHeight="810.0" prefWidth="809.0" styleClass="secondary-color" BorderPane.alignment="CENTER">
                <children>
@@ -55,7 +55,7 @@
                      <children>
                         <ImageView fitHeight="164.0" fitWidth="257.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../Desktop/horizontal_on_white_by_logaster.png" />
+                              <Image url="@../img/get.png" />
                            </image>
                            <VBox.margin>
                               <Insets top="100.0" />
@@ -94,7 +94,7 @@
                               <Label prefHeight="17.0" prefWidth="137.0" text="Henüz hesabınız yok mu?" />
                               <Hyperlink fx:id="linkLoginToRegister" onMouseClicked="#linkLoginToRegister_Click" styleClass="link" text="Kayıt ol" />
                               <Pane prefHeight="67.0" prefWidth="14.0" />
-                              <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#btnLogin_Click" prefHeight="39.0" prefWidth="107.0" styleClass="btn-login" text="Giriş Yap" textFill="WHITE" />
+                              <Button fx:id="btnLogin" mnemonicParsing="false" onMousePressed="#btnLogin_Pressed" prefHeight="39.0" prefWidth="107.0" styleClass="btn-login" text="Giriş Yap" textFill="WHITE" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="506.0">

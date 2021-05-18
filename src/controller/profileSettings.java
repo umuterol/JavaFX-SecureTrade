@@ -11,6 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
@@ -61,9 +62,20 @@ public class profileSettings {
 
     @FXML
     private Button btnProfileSaveChanged;
-
-
+    
     @FXML
+    private BorderPane borderPaneProfileSettings;
+
+
+    public BorderPane getBorderPaneProfileSettings() {
+		return borderPaneProfileSettings;
+	}
+
+	public void setBorderPaneProfileSettings(BorderPane borderPaneProfileSettings) {
+		this.borderPaneProfileSettings = borderPaneProfileSettings;
+	}
+
+	@FXML
     void btnProfileSaveChanged_Click(ActionEvent event) {
 
     }
@@ -161,6 +173,30 @@ public class profileSettings {
    		} catch(Exception e) {
    			e.printStackTrace();
    		}
+
+    }
+    
+    @FXML
+    void btnBackToShop_Click(ActionEvent event) {
+
+    	try {
+ 	    	
+   		    FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("../views/shop.fxml"));
+            AnchorPane anchorPane = fxmlLoader.load();
+
+            shop controller = fxmlLoader.getController();
+            
+            
+            AnchorPane thisAnchor=(AnchorPane)borderPaneProfileSettings.getParent();
+            thisAnchor.getChildren().setAll(controller.getBorderPaneShop());
+    	    
+   	  
+   		
+   		} catch(Exception e) {
+   			e.printStackTrace();
+   		}
+
 
     }
     

@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -20,7 +21,8 @@ import model.Product;
 
 public class shop {
 
-    @FXML
+   
+	@FXML
     private ResourceBundle resources;
 
     @FXML
@@ -44,6 +46,12 @@ public class shop {
     @FXML
     private BorderPane borderPaneShop;
     
+    @FXML
+    private MenuItem dropdownProfilSettings;
+
+    @FXML
+    private MenuItem dropdownLogout;
+    
     public BorderPane getBorderPaneShop() {
 		return borderPaneShop;
 	}
@@ -56,29 +64,38 @@ public class shop {
 
     @FXML
     void btnSearch_Click(ActionEvent event) {
+    	
 
     }
+    
+  
 
     @FXML
     void initialize() {
-      
+    	
+    	getProduct();
+    	
+    }
+    
+    private void getProduct() {
     	  int column = 0;
           int row = 1;
+          String [] array= {"Umut","umut","umut","umut"};
+          this.product=new Product();
+          this.product.setName("umut");
+          this.product.setFeatures("test features");
+          this.product.setPrice(1.3);
+          this.product.setImgSrc("../img/computer.jpg");
+          /*this.product.setFeatures(array);*/
           try {
-              for (int i = 0; i < 20; i++) {
+              for (int i = 0; i < 10; i++) {
                   FXMLLoader fxmlLoader = new FXMLLoader();
                   fxmlLoader.setLocation(getClass().getResource("../views/product.fxml"));
                   AnchorPane anchorPane = fxmlLoader.load();
 
                   product controller = fxmlLoader.getController();
                   
-                  String [] array= {"Umut","umut","umut","umut"};
-                  this.product=new Product();
-                  this.product.setName("umut");
-                  this.product.setDescription("test");
-                  this.product.setPrice(1.3);
-                  this.product.setImgSrc("../img/computer.jpg");
-                  this.product.setFeatures(array);
+                
                   
                   controller.setData(this.product);
 
@@ -104,6 +121,57 @@ public class shop {
               e.printStackTrace();
           }
           
+    }
+    
+    
+    @FXML
+    void dropdownLogout_Click(ActionEvent event) {
+    	
+    	try {
+ 	    	
+   		    FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("../views/index.fxml"));
+            AnchorPane anchorPane = fxmlLoader.load();
+
+            index controller = fxmlLoader.getController();
+            
+            
+            AnchorPane thisAnchor=(AnchorPane)borderPaneShop.getParent();
+            thisAnchor.getChildren().setAll(controller.getBorderPaneIndex());
+    	    
+   	  
+   		
+   		} catch(Exception e) {
+   			e.printStackTrace();
+   		}
 
     }
+
+    @FXML
+    void dropdownProfilSettings_Click(ActionEvent event) {
+    	
+try {
+ 	    	
+   		    FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("../views/profileSettings.fxml"));
+            AnchorPane anchorPane = fxmlLoader.load();
+
+            profileSettings controller = fxmlLoader.getController();
+            
+            
+            AnchorPane thisAnchor=(AnchorPane)borderPaneShop.getParent();
+            thisAnchor.getChildren().setAll(controller.getBorderPaneProfileSettings());
+    	    
+   	  
+   		
+   		} catch(Exception e) {
+   			e.printStackTrace();
+   		}
+
+		 
+
+
+    }
+    
+   
 }

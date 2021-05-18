@@ -37,9 +37,9 @@ public class productDetails {
 
     @FXML
     private Button btnSecureBuy;
-
+/*
     @FXML
-    private ListView<String> lwFeature;
+    private ListView<String> lwFeature; */
 
     @FXML
     private TextArea txtareaDescription;
@@ -67,8 +67,8 @@ public class productDetails {
     	this.lblProductName.setText(product.getName());
     	this.lblPrductPrice.setText(product.getPrice()+" TL");
     	this.imgProduct.setImage(new Image(getClass().getResourceAsStream(product.getImgSrc())));
-    	this.txtareaDescription.setText(product.getDescription());
-    	this.lwFeature.getItems().addAll(product.getFeatures());
+    	this.txtareaDescription.setText(product.getFeatures());
+    /*	this.lwFeature.getItems().addAll(product.getFeatures()); */
     }
 
     @FXML

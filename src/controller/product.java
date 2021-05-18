@@ -46,13 +46,7 @@ public class product{
               fxmlLoader.setLocation(getClass().getResource("/views/productDetails.fxml"));
               AnchorPane anchorPane = fxmlLoader.load();
               productDetails controller = fxmlLoader.getController();
-             /* String [] array= {"Umut","umut","umut","umut"};
-              this.product=new Product();
-              this.product.setName("umut");
-              this.product.setDescription("test");
-              this.product.setPrice(1.3);
-              this.product.setImgSrc("../img/productDetails.png");
-              this.product.setFeatures(array);*/
+             
               
               controller.setForm(this.product);
  

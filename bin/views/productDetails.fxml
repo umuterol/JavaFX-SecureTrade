@@ -3,7 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
@@ -59,12 +58,7 @@
             </VBox>
             <TabPane prefHeight="295.0" prefWidth="573.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
-                <Tab text="Ürün Özellikleri">
-                     <content>
-                        <ListView fx:id="lwFeature" opacity="0.8" prefHeight="200.0" prefWidth="200.0" />
-                     </content>
-                  </Tab>
-                 <Tab text="Açıklama">
+                 <Tab text="Ürün Özellikleri">
                      <content>
                         <TextArea fx:id="txtareaDescription" editable="false" opacity="0.8" prefHeight="177.0" prefWidth="573.0" style="-fx-background-color: blue;" text="Açıklama">
                            <font>

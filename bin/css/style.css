@@ -8,20 +8,23 @@
 }
 
 .search-button{
-    -fx-background-color: #828282;
+    -fx-background-color: #FFFFFF;
     -fx-background-radius: 30;
 }
-
-.right-bar{
-    -fx-background-color: #D3D3D3;
+.search-button:hover{
+	-fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 ,10.0);
+	-fx-padding: 10px 10px 10px 10px;
+	
 }
+
+
 
 .shadow{
     -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 ,10.0);
 }
 
 .productDetails-card{
-    -fx-background-color: #F16C31;
+    -fx-background-color: #6c82a6;
     -fx-background-radius: 30;
 }
 
@@ -36,12 +39,12 @@
 }
 
 .free-delivery-card{
-    -fx-background-color: #D3D3D3;
+    -fx-background-color: #da529f;
     -fx-background-radius: 30;
 }
 
 .shopping-online-card{
-    -fx-background-color: #BAEAC3;
+    -fx-background-color: #21a11c;
     -fx-background-radius: 30;
 }
 
@@ -52,7 +55,6 @@
 
 #btnSecureBuy:hover{
 	-fx-padding:15px;
-	-fx-background-color: rgb(70,170,50);
 	-fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 ,10.0);
 }
 #btnBackToProduct{
@@ -80,7 +82,6 @@
 }
 
 .buy-btn:hover{
-    -fx-background-color: #0000ff;
     -fx-padding: 15px 15px 15px 15px;
     -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.15), 10.0 , 0.0 , 0.0 ,15.0);
 }
@@ -171,7 +172,14 @@
 }
 
 
+.btnBackToShop{
+	-fx-background-color: #13123A;
+}
 
+.btnBackToShop:hover{
+	-fx-padding: 5px 5px 5px 5px;
+	-fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 2.0 , 0.0 , 0.0 ,2.0);
+}
 
 
 

@@ -16,13 +16,32 @@
 
 <AnchorPane fx:id="anchorProfileSettings" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.profileSettings">
    <children>
-      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1315.0" stylesheets="@../css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane fx:id="borderPaneProfileSettings" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1315.0" stylesheets="@../css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
-            <VBox prefHeight="810.0" prefWidth="325.0" spacing="70.0" styleClass="primary-color" BorderPane.alignment="CENTER">
+            <VBox prefHeight="810.0" prefWidth="325.0" styleClass="primary-color" BorderPane.alignment="CENTER">
                <children>
+                  <HBox prefHeight="40.0" prefWidth="570.0">
+                     <children>
+                        <Button fx:id="btnBackToShop" alignment="TOP_LEFT" graphicTextGap="5.0" mnemonicParsing="false" onAction="#btnBackToShop_Click" prefHeight="37.0" prefWidth="129.0" styleClass="btnBackToShop" stylesheets="@../css/style.css" text="Geri Dön" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="38.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/back.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Cambria" size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="325.0" spacing="15.0">
                      <VBox.margin>
-                        <Insets top="50.0" />
+                        <Insets top="30.0" />
                      </VBox.margin>
                      <children>
                         <Circle fx:id="imgProfileCircle" fill="DODGERBLUE" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
@@ -38,7 +57,7 @@
                         </Button>
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER" prefHeight="209.0" prefWidth="325.0" spacing="15.0">
+                  <VBox alignment="CENTER" prefHeight="284.0" prefWidth="325.0" spacing="10.0">
                      <children>
                         <HBox fx:id="menuSettingProfil" alignment="CENTER" onMousePressed="#menuSettingProfil_Pressed" prefHeight="45.0" prefWidth="325.0" styleClass="profile-menu-select">
                            <children>
@@ -109,6 +128,9 @@
                            </children>
                         </HBox>
                      </children>
+                     <padding>
+                        <Insets top="50.0" />
+                     </padding>
                   </VBox>
                </children>
             </VBox>

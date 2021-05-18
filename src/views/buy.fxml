@@ -184,7 +184,7 @@
                         <Insets left="10.0" right="10.0" />
                      </VBox.margin>
                   </HBox>
-                  <VBox prefHeight="138.0" prefWidth="570.0" style="-fx-background-color: lightblue;">
+                  <VBox prefHeight="138.0" prefWidth="570.0" style="-fx-background-color: #6c82a6;">
                      <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="22.0" prefWidth="570.0">
                            <children>

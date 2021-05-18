@@ -16,29 +16,33 @@ public class Product {
 	public void setName(String name) {
 		this.name = name;
 	}
+	/*
 	public String[] getFeatures() {
 		return features;
 	}
 	public void setFeatures(String[] features) {
 		this.features = features;
-	}
+	}*/
 	public double getPrice() {
 		return price;
 	}
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
 	
+	
+	public String getFeatures() {
+		return features;
+	}
+	public void setFeatures(String features) {
+		this.features = features;
+	}
+
+
 	private String imgSrc;
 	private String name;
-	private String[] features;
-	private String description;
+	/*private String[] features;*/
+	private String features;
 	private double price;
 	
 }

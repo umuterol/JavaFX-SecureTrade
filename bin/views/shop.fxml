@@ -4,6 +4,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -15,34 +17,40 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1315.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.shop">
    <children>
       <BorderPane fx:id="borderPaneShop" layoutX="6.0" prefHeight="810.0" prefWidth="1315.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
-            <VBox prefHeight="200.0" prefWidth="435.0" styleClass="right-bar" BorderPane.alignment="CENTER">
+            <VBox prefHeight="200.0" prefWidth="435.0" styleClass="primary-color" BorderPane.alignment="CENTER">
                <children>
-                  <HBox alignment="CENTER" prefHeight="110.0" prefWidth="200.0">
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label prefHeight="50.0" prefWidth="156.0" text="Güvenli" textFill="#878787">
+                        <Label text="G" textFill="#6c82a6">
                            <font>
-                              <Font name="Cambria Bold" size="40.0" />
+                              <Font name="Monospaced Regular" size="96.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="50.0" prefWidth="179.0" text="E-Ticaret" textFill="#878787">
+                        <Label text="E" textFill="#da529fd1">
                            <font>
-                              <Font name="Cambria" size="40.0" />
+                              <Font size="96.0" />
+                           </font>
+                        </Label>
+                        <Label text="T" textFill="#21d77cd1">
+                           <font>
+                              <Font size="120.0" />
                            </font>
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="65.0" prefWidth="200.0" VBox.vgrow="NEVER">
+                  <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="375.0" VBox.vgrow="NEVER">
                      <VBox.margin>
                         <Insets left="30.0" right="30.0" />
                      </VBox.margin>
                      <children>
-                        <TextField fx:id="txtSearch" prefHeight="40.0" prefWidth="235.0" promptText="Type here to search" styleClass="transparent">
+                        <TextField fx:id="txtSearch" prefHeight="40.0" prefWidth="235.0" promptText="Aradığınız ürünü yazınız" styleClass="transparent">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -50,7 +58,16 @@
                               <Font name="Cambria" size="18.0" />
                            </font>
                         </TextField>
-                        <Button fx:id="btnSearch" mnemonicParsing="false" onAction="#btnSearch_Click" prefHeight="40.0" prefWidth="100.0" styleClass="search-button" text="Search" textFill="WHITE" />
+                        <Pane prefHeight="58.0" prefWidth="70.0" />
+                        <Button contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" mnemonicParsing="false" styleClass="search-button">
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/search.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
                      </children>
                      <styleClass>
                         <String fx:value="search-box" />
@@ -58,11 +75,6 @@
                      </styleClass>
                   </HBox>
                   <Pane prefHeight="57.0" prefWidth="435.0" VBox.vgrow="ALWAYS" />
-                  <AnchorPane fx:id="anchorFilter" prefHeight="550.0" prefWidth="350.0" style="-fx-background-color: #AAAAAA;">
-                     <VBox.margin>
-                        <Insets left="40.0" right="40.0" />
-                     </VBox.margin>
-                  </AnchorPane>
                   <Pane prefHeight="57.0" prefWidth="435.0" VBox.vgrow="ALWAYS" />
                </children>
             </VBox>
@@ -70,47 +82,58 @@
          <center>
             <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
-                  <HBox alignment="CENTER" prefHeight="65.0" prefWidth="200.0">
+                  <HBox alignment="TOP_RIGHT" prefHeight="65.0" prefWidth="200.0">
                      <VBox.margin>
-                        <Insets left="20.0" right="20.0" />
+                        <Insets />
                      </VBox.margin>
                      <children>
-                        <Label prefHeight="29.0" prefWidth="88.0" text="language" textFill="#878787">
+                        <MenuButton contentDisplay="RIGHT" graphicTextGap="15.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="130.0" styleClass="primary-color" text="Hesabım" textFill="WHITE">
+                          <items>
+                            <MenuItem fx:id="dropdownProfilSettings" mnemonicParsing="false" onAction="#dropdownProfilSettings_Click" text="Hesap Ayarları">
+                                 <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/dropdown-user.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </MenuItem>
+                            <MenuItem fx:id="dropdownLogout" mnemonicParsing="false" onAction="#dropdownLogout_Click" text="Çıkış Yap">
+                                 <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/logout.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </MenuItem>
+                          </items>
+                           <graphic>
+                              <Circle fill="#4c1fff" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
+                           </graphic>
                            <font>
-                              <Font name="Cambria Bold" size="18.0" />
+                              <Font name="System Bold" size="12.0" />
                            </font>
-                        </Label>
-                        <Label prefHeight="29.0" prefWidth="77.0" text="English" textFill="#878787" underline="true">
-                           <font>
-                              <Font name="Cambria" size="18.0" />
-                           </font>
-                        </Label>
-                        <Pane prefHeight="65.0" prefWidth="393.0" HBox.hgrow="ALWAYS" />
-                        <Label prefHeight="62.0" prefWidth="100.0" text="My Account" textFill="#878787">
-                           <font>
-                              <Font name="Cambria" size="18.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="50.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../img/productDetails.png" />
-                           </image>
-                        </ImageView>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </MenuButton>
                      </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Pane prefHeight="84.0" prefWidth="96.0" />
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="380.0" styleClass="free-delivery-card">
+                        <Pane prefHeight="84.0" prefWidth="96.0" HBox.hgrow="ALWAYS" />
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="335.0" styleClass="free-delivery-card">
                            <children>
+                              <Pane prefHeight="100.0" prefWidth="54.0" />
                               <VBox alignment="CENTER" prefHeight="100.0" prefWidth="214.0">
                                  <children>
-                                    <Label prefHeight="29.0" prefWidth="190.0" text="Free delivery" textFill="#878787">
+                                    <Label prefHeight="29.0" prefWidth="190.0" text="Ücretsiz Kargo" textFill="WHITE">
                                        <font>
                                           <Font name="Cambria Bold" size="18.0" />
                                        </font>
                                     </Label>
-                                    <Label prefHeight="16.0" prefWidth="190.0" text="over $20 order" textFill="#878787">
+                                    <Label prefHeight="20.0" prefWidth="167.0" text="Tüm ürünlerde" textFill="WHITE">
                                        <font>
                                           <Font name="Cambria" size="15.0" />
                                        </font>
@@ -119,36 +142,37 @@
                               </VBox>
                               <ImageView fitHeight="49.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../img/deliveryMarket.png" />
+                                    <Image url="@../img/profile-delivery.png" />
+                                 </image>
+                              </ImageView>
+                              <Pane prefHeight="100.0" prefWidth="27.0" />
+                           </children>
+                        </HBox>
+                        <Pane prefHeight="100.0" prefWidth="101.0" HBox.hgrow="ALWAYS" />
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="332.0" styleClass="shopping-online-card">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="100.0" prefWidth="210.0">
+                                 <children>
+                                    <Label prefHeight="29.0" prefWidth="212.0" text="Güvenli Ticaret Hizmeti" textFill="WHITE">
+                                       <font>
+                                          <Font name="Cambria Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="20.0" prefWidth="226.0" text="Şubelerimiz Türkiye'nin her yerinde" textFill="WHITE">
+                                       <font>
+                                          <Font name="Cambria" size="13.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <ImageView fitHeight="49.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/tik.png" />
                                  </image>
                               </ImageView>
                            </children>
                         </HBox>
                         <Pane prefHeight="84.0" prefWidth="96.0" HBox.hgrow="ALWAYS" />
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="336.0" styleClass="shopping-online-card">
-                           <children>
-                              <VBox alignment="CENTER" prefHeight="100.0" prefWidth="203.0">
-                                 <children>
-                                    <Label prefHeight="29.0" prefWidth="190.0" text="Shopping online" textFill="#878787">
-                                       <font>
-                                          <Font name="Cambria Bold" size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Label prefHeight="20.0" prefWidth="207.0" text="get your shopping in same day" textFill="#878787">
-                                       <font>
-                                          <Font name="Cambria" size="15.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <ImageView fitHeight="49.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../img/stopwatchMarket.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </HBox>
-                        <Pane prefHeight="84.0" prefWidth="96.0" />
                      </children>
                      <VBox.margin>
                         <Insets left="20.0" right="20.0" top="10.0" />
