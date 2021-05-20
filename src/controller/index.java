@@ -1,15 +1,19 @@
 package controller;
 
+import helpers.auth;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 public class index {
 
@@ -33,6 +37,18 @@ public class index {
     
     @FXML
     private BorderPane borderPaneIndex;
+    
+    @FXML
+    private PasswordField txtLoginPass;
+
+    @FXML
+    private Label lblResult;
+    
+    private auth authHelper;
+    
+    public  index() {
+    	authHelper=new auth();
+    }
 
     public BorderPane getBorderPaneIndex() {
 		return borderPaneIndex;
@@ -55,6 +71,16 @@ public class index {
 	  @FXML
 	    void btnLogin_Pressed(MouseEvent event) {
 		  
+		 String email=txtLoginMail.getText();
+		 String password=txtLoginPass.getText();
+		 
+		 String loginControl=authHelper.login(email, password);
+		 if(loginControl != null) {
+			    lblResult.setText(loginControl);
+	    		lblResult.setTextFill(Color.RED);
+	    		lblResult.setVisible(true);
+	    		//return;
+		 }
 
 			 try {
 		 	    	

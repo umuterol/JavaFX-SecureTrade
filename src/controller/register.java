@@ -1,15 +1,21 @@
 package controller;
 
+
+
+
+import helpers.auth;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 public class register {
 
@@ -44,10 +50,39 @@ public class register {
 
     @FXML
     private Button btnRegister;
-
+    
     @FXML
-    void btnRegister_Click(ActionEvent event) {
-
+    private Label lblResult;
+    
+    
+  
+    @FXML
+     void btnRegister_Click(ActionEvent event) {
+    	
+    	String name=txtRegisterName.getText();
+    	String password=txtRegisterPass.getText();
+    	String password2=txtRegisterPass2.getText();
+    	String phone=txtRegisterPhone.getText();
+    	String email=txtRegisterMail.getText();
+  
+    	String inputControl=middleWares.auth.registerInputControl(name, password, password2, phone, email);
+    	if(inputControl !=null) {
+    		lblResult.setText(inputControl);
+    		lblResult.setTextFill(Color.RED);
+    		lblResult.setVisible(true);
+    		return;
+    	}
+    	
+    	if(new auth().register(name, password2, phone, email)) {
+    	lblResult.setText("Kayýt Baþarýlý");
+		lblResult.setTextFill(Color.GREEN);
+		lblResult.setVisible(true);
+    	}else {
+    		lblResult.setText("Uygulama Hatasý! Özür dileriz daha sonra tekrar deneyiniz.");
+    		lblResult.setTextFill(Color.RED);
+    		lblResult.setVisible(true);
+    		return;
+    	}
     }
 
     @FXML
@@ -74,5 +109,6 @@ public class register {
    	 
 
     }
+
 
 }

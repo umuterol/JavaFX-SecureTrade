@@ -49,12 +49,12 @@
             </Label>
             <HBox prefHeight="110.0" prefWidth="570.0">
                <children>
-                  <ImageView fx:id="imgBuyProduct" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imgBuyProduct" fitHeight="105.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                      <viewport>
                         <Rectangle2D />
                      </viewport>
                      <image>
-                        <Image url="@../../../../Desktop/computer.jpg" />
+                        <Image url="@../img/computer.jpg" />
                      </image>
                      <HBox.margin>
                         <Insets />

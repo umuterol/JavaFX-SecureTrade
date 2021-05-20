@@ -1,10 +1,16 @@
 package controller;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Path;
 import java.util.ResourceBundle;
 
+import javax.imageio.ImageIO;
 
+import database.databaseConnect;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,11 +19,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import model.Product;
+import model.user;
 
 public class shop {
 
@@ -52,6 +60,9 @@ public class shop {
     @FXML
     private MenuItem dropdownLogout;
     
+    @FXML
+    private ImageView test;
+    
     public BorderPane getBorderPaneShop() {
 		return borderPaneShop;
 	}
@@ -74,6 +85,7 @@ public class shop {
     void initialize() {
     	
     	getProduct();
+    	test.setImage(user.getImg());
     	
     }
     

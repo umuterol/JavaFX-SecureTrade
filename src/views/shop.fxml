@@ -74,7 +74,13 @@
                         <String fx:value="shadow" />
                      </styleClass>
                   </HBox>
-                  <Pane prefHeight="57.0" prefWidth="435.0" VBox.vgrow="ALWAYS" />
+                  <Pane prefHeight="57.0" prefWidth="435.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <ImageView fx:id="test" fitHeight="150.0" fitWidth="200.0" layoutX="70.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/computer.jpg" />
+                           </image></ImageView>
+                     </children></Pane>
                   <Pane prefHeight="57.0" prefWidth="435.0" VBox.vgrow="ALWAYS" />
                </children>
             </VBox>

@@ -20,7 +20,7 @@
          <children>
             <ImageView fitHeight="164.0" fitWidth="257.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../Desktop/horizontal_on_white_by_logaster.png" />
+                  <Image url="@../img/get.png" />
                </image>
                <VBox.margin>
                   <Insets top="100.0" />
@@ -90,6 +90,11 @@
                   <Hyperlink fx:id="linkRegisterToLogin" onMouseClicked="#linkRegisterToLogin_Click" styleClass="link" text="Giriş Yap" />
                   <Pane prefHeight="67.0" prefWidth="66.0" />
                   <Button fx:id="btnRegister" mnemonicParsing="false" onAction="#btnRegister_Click" prefHeight="49.0" prefWidth="141.0" styleClass="btn-register" text="Kayıt Ol" textFill="WHITE" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="24.0" prefWidth="505.0">
+               <children>
+                  <Label fx:id="lblResult" text="Label" visible="false" />
                </children>
             </HBox>
          </children>

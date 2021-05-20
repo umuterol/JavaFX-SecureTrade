@@ -2,6 +2,7 @@ package controller;
 
 import java.io.File;
 
+import helpers.auth;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -85,7 +86,7 @@ public class profileSettings {
     	
     	FileChooser filechooser=new FileChooser();
     	filechooser.setTitle("Open File Dialog");
-    	Stage stage=(Stage)anchorProfileSettings.getScene().getWindow();
+    	Stage stage=(Stage)borderPaneProfileSettings.getParent().getScene().getWindow();
 
     	File file=filechooser.showOpenDialog(stage);
 
@@ -93,8 +94,13 @@ public class profileSettings {
     		Image img=new Image(file.toURI().toString(),500,400,true,true);
     		imgProfile.setImage(img);
     		
+    		auth authObject=new auth();
+        	if(authObject.userProfileImageUpdate(file)) {
+        		System.out.print("Update profileImage Successful");
+        	}
+    		
     	}
-
+    	
 
     }
 

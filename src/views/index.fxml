@@ -86,7 +86,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <PasswordField prefHeight="26.0" prefWidth="224.0" styleClass="txt-login" />
+                              <PasswordField fx:id="txtLoginPass" prefHeight="26.0" prefWidth="224.0" styleClass="txt-login" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="67.0" prefWidth="506.0">
@@ -97,10 +97,9 @@
                               <Button fx:id="btnLogin" mnemonicParsing="false" onMousePressed="#btnLogin_Pressed" prefHeight="39.0" prefWidth="107.0" styleClass="btn-login" text="Giriş Yap" textFill="WHITE" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="506.0">
+                        <HBox alignment="CENTER" prefHeight="28.0" prefWidth="506.0">
                            <children>
-                              <Pane prefHeight="40.0" prefWidth="208.0" HBox.hgrow="ALWAYS" />
-                              <Pane prefHeight="40.0" prefWidth="47.0" HBox.hgrow="ALWAYS" />
+                              <Label fx:id="lblResult" text="Label" visible="false" />
                            </children>
                         </HBox>
                      </children>
