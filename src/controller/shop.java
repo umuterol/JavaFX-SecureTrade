@@ -19,11 +19,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import model.Product;
 import model.user;
 
@@ -60,8 +63,9 @@ public class shop {
     @FXML
     private MenuItem dropdownLogout;
     
+    
     @FXML
-    private ImageView test;
+    private Circle circleProfileImage;
     
     public BorderPane getBorderPaneShop() {
 		return borderPaneShop;
@@ -85,8 +89,8 @@ public class shop {
     void initialize() {
     	
     	getProduct();
-    	test.setImage(user.getImg());
-    	
+        getProfileImageFromUser();
+    		
     }
     
     private void getProduct() {
@@ -138,7 +142,7 @@ public class shop {
     
     @FXML
     void dropdownLogout_Click(ActionEvent event) {
-    	
+    	user.clear();
     	try {
  	    	
    		    FXMLLoader fxmlLoader = new FXMLLoader();
@@ -162,7 +166,7 @@ public class shop {
     @FXML
     void dropdownProfilSettings_Click(ActionEvent event) {
     	
-try {
+    	try {
  	    	
    		    FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("../views/profileSettings.fxml"));
@@ -185,5 +189,8 @@ try {
 
     }
     
+    private void getProfileImageFromUser() {
+    	circleProfileImage.setFill(new ImagePattern(user.getImg()));
+    }
    
 }

@@ -1,12 +1,15 @@
 package controller;
 
+
 import java.io.File;
 
+import helpers.Control;
 import helpers.auth;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -15,9 +18,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import model.user;
 
 
 public class profileSettings {
@@ -66,7 +71,14 @@ public class profileSettings {
     
     @FXML
     private BorderPane borderPaneProfileSettings;
+    
+    @FXML
+    private Label lblMenuUserName;
+    
+    @FXML
+    private Label lblResult;
 
+    
 
     public BorderPane getBorderPaneProfileSettings() {
 		return borderPaneProfileSettings;
@@ -78,7 +90,19 @@ public class profileSettings {
 
 	@FXML
     void btnProfileSaveChanged_Click(ActionEvent event) {
+		String name=txtProfileName.getText();
+		String email=txtProfileMail.getText();
+		String phone=txtProfilePhone.getText();
+		
+		String profileUpdateControl=new auth().menuProfileUpdate(name, email, phone);
+		if(Control.errorControl(profileUpdateControl, lblResult)) {
+			user.setEmail(email);
+			user.setName(name);
+			user.setPhone(phone);
+			getUserName();
+		}
 
+		
     }
 
     @FXML
@@ -91,12 +115,14 @@ public class profileSettings {
     	File file=filechooser.showOpenDialog(stage);
 
     	if(file.isFile()) {
-    		Image img=new Image(file.toURI().toString(),500,400,true,true);
+    		Image img=new Image(file.toURI().toString());
     		imgProfile.setImage(img);
     		
     		auth authObject=new auth();
         	if(authObject.userProfileImageUpdate(file)) {
         		System.out.print("Update profileImage Successful");
+        		user.setImg(img);
+        		getMenuProfileImageFromUser();//update img
         	}
     		
     	}
@@ -111,10 +137,10 @@ public class profileSettings {
     	 try {
    	    	
     		 FXMLLoader fxmlLoader = new FXMLLoader();
-             fxmlLoader.setLocation(getClass().getResource("../views/passwordOperation.fxml"));
+             fxmlLoader.setLocation(getClass().getResource("../views/passwordUpdate.fxml"));
              AnchorPane anchorPane = fxmlLoader.load();
 
-             passwordOperation controller = fxmlLoader.getController();
+             passwordUpdate controller = fxmlLoader.getController();
              
              
              anchorMenu.getChildren().setAll(controller.getVboxMenuPassword());
@@ -207,8 +233,32 @@ public class profileSettings {
     }
     
     
+    
+    private void getMenuProfileImageFromUser() {
+    	imgProfileCircle.setFill(new ImagePattern(user.getImg()));
+    }
+    
+    private void getUserName() {
+    	lblMenuUserName.setText(user.getName());
+    }
+    
+    private void getMenuProfileInfosFromUser() {
+    	imgProfile.setImage(user.getImg());
+    	txtProfileName.setText(user.getName());
+    	txtProfileMail.setText(user.getEmail());
+    	txtProfilePhone.setText(user.getPhone());
+    } 
+    
+    
 
+    @FXML
+    void initialize() {
+       
+    	getMenuProfileImageFromUser();
+    	getUserName();
+    	getMenuProfileInfosFromUser();
 
+    }
 }
 
 

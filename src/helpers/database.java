@@ -17,5 +17,4 @@ public class database {
 		connect=databaseConnect.Connect();
 	}
 	
-
 }

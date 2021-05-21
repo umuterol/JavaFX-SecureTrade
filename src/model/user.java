@@ -24,6 +24,7 @@ public class user {
 	private static String phone;
 	private static String email;
 	private static Image img;
+	
 	public static int getId() {
 		return id;
 	}
@@ -56,7 +57,12 @@ public class user {
 	}
 	
 	
+	public static void clear() {
+		setId(-1);
+		setName(null);
+		setPhone(null);
+		setEmail(null);
+		setImg(null);
+	}
 	
-	
-
 }

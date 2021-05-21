@@ -1,5 +1,6 @@
 package controller;
 
+import helpers.Control;
 import helpers.auth;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -44,12 +45,6 @@ public class index {
     @FXML
     private Label lblResult;
     
-    private auth authHelper;
-    
-    public  index() {
-    	authHelper=new auth();
-    }
-
     public BorderPane getBorderPaneIndex() {
 		return borderPaneIndex;
 	}
@@ -74,14 +69,9 @@ public class index {
 		 String email=txtLoginMail.getText();
 		 String password=txtLoginPass.getText();
 		 
-		 String loginControl=authHelper.login(email, password);
-		 if(loginControl != null) {
-			    lblResult.setText(loginControl);
-	    		lblResult.setTextFill(Color.RED);
-	    		lblResult.setVisible(true);
-	    		//return;
-		 }
-
+		 String loginControl=new auth().login(email, password);
+		 
+		if(Control.errorControl(loginControl,lblResult)) {
 			 try {
 		 	    	
 	    		 FXMLLoader fxmlLoader = new FXMLLoader();
@@ -97,8 +87,10 @@ public class index {
 	    	  
 	    		
 	    		} catch(Exception e) {
+	    			Control.errorControl("Exception",lblResult);
 	    			e.printStackTrace();
 	    		}
+		}
 
 	    }
 
@@ -125,5 +117,38 @@ public class index {
     	 
 
     }
+/*
+    public boolean showError(String error) {
+    	 if(error == "Exception") {
+			 lblResult.setText("Uygulama Hatasý! Özür dileriz daha sonra tekrar deneyiniz.");
+	    		lblResult.setTextFill(Color.RED);
+	    		lblResult.setVisible(true);
+	    		return false;
+		 }
+		 if(error != null) {
+			    lblResult.setText(error);
+	    		lblResult.setTextFill(Color.RED);
+	    		lblResult.setVisible(true);
+	    		return false;
+		 }
+		 return true;
+    }
 
+*/
+
+	public void setTxtLoginMail(String txtLoginMail) {
+		this.txtLoginMail.setText(txtLoginMail);
+	}
+
+
+	public void setTxtLoginPass(String txtLoginPass) {
+		this.txtLoginPass.setText(txtLoginPass);
+	}
+	
+
+    @FXML
+    void initialize() {
+       txtLoginMail.setText("umutumut");
+       txtLoginPass.setText("umutumut");
+    }
 }
