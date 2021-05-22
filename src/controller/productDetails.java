@@ -66,7 +66,7 @@ public class productDetails {
     	
     	this.lblProductName.setText(product.getName());
     	this.lblPrductPrice.setText(product.getPrice()+" TL");
-    	this.imgProduct.setImage(new Image(getClass().getResourceAsStream(product.getImgSrc())));
+    	//this.imgProduct.setImage(new Image(getClass().getResourceAsStream(product.getImgSrc())));
     	this.txtareaDescription.setText(product.getFeatures());
     /*	this.lwFeature.getItems().addAll(product.getFeatures()); */
     }

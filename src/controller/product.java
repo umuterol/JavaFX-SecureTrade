@@ -73,8 +73,8 @@ public class product{
     	lblProductName.setText(product.getName());
     	lblProductPrice.setText(product.getPrice() + " TL");
     	
-    	Image image=new Image(getClass().getResourceAsStream(product.getImgSrc()));
-    	imgProduct.setImage(image);
+    	//Image image=new Image(getClass().getResourceAsStream(product.getImgSrc()));
+    	//imgProduct.setImage(image);
     }
 
     

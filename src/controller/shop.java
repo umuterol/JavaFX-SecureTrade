@@ -101,7 +101,7 @@ public class shop {
           this.product.setName("umut");
           this.product.setFeatures("test features");
           this.product.setPrice(1.3);
-          this.product.setImgSrc("../img/computer.jpg");
+         // this.product.setImgSrc("../img/computer.jpg");
           /*this.product.setFeatures(array);*/
           try {
               for (int i = 0; i < 10; i++) {
