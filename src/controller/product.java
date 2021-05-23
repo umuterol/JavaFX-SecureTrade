@@ -15,6 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.Product;
+import model.dealer;
 
 public class product{
 
@@ -47,8 +48,9 @@ public class product{
               AnchorPane anchorPane = fxmlLoader.load();
               productDetails controller = fxmlLoader.getController();
              
+              dealer dealerInfos=new helpers.shop().getDealer(product.getDealerId());
               
-              controller.setForm(this.product);
+              controller.setForm(this.product,dealerInfos);
  
 
             Scene scene=new Scene(anchorPane);    
@@ -72,9 +74,8 @@ public class product{
     	
     	lblProductName.setText(product.getName());
     	lblProductPrice.setText(product.getPrice() + " TL");
-    	
-    	//Image image=new Image(getClass().getResourceAsStream(product.getImgSrc()));
-    	//imgProduct.setImage(image);
+    	imgProduct.setImage(this.product.getImg());
+
     }
 
     

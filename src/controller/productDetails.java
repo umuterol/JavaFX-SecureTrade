@@ -13,7 +13,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import model.Product;
+import model.dealer;
+import model.user;
 
 public class productDetails {
 
@@ -37,9 +41,7 @@ public class productDetails {
 
     @FXML
     private Button btnSecureBuy;
-/*
-    @FXML
-    private ListView<String> lwFeature; */
+
 
     @FXML
     private TextArea txtareaDescription;
@@ -58,17 +60,32 @@ public class productDetails {
     
     @FXML
     private VBox vboxProductDetails;
+    
+    @FXML
+    private Circle circleImgDealer;
+
 
     private Product product;
+    
+    private dealer dealerInfos;
 
-    public void setForm(Product product) {
+    public void setForm(Product product ,dealer dealerInfos) {
     	this.product=product;
     	
     	this.lblProductName.setText(product.getName());
     	this.lblPrductPrice.setText(product.getPrice()+" TL");
-    	//this.imgProduct.setImage(new Image(getClass().getResourceAsStream(product.getImgSrc())));
-    	this.txtareaDescription.setText(product.getFeatures());
-    /*	this.lwFeature.getItems().addAll(product.getFeatures()); */
+    	this.imgProduct.setImage(product.getImg());
+    	
+    	String publishDate=product.getPublishTime().split(" ")[0];
+    	this.txtareaDescription.setText("Ýlan Tarihi: "+ publishDate + "\n\n"+ product.getFeatures());
+    	
+    	//Deary Infos
+    	this.dealerInfos=dealerInfos;
+    	lblDealerName.setText(dealerInfos.getName());
+    	lblDealerMail.setText(dealerInfos.getEmail());
+    	lblDealerPhone.setText(dealerInfos.getPhone());
+    	circleImgDealer.setFill(new ImagePattern(dealerInfos.getImg()));
+    	
     }
 
     @FXML
@@ -81,7 +98,7 @@ public class productDetails {
              AnchorPane anchorPane = fxmlLoader.load();
 
              buy controller = fxmlLoader.getController();
-             //controller.setForm(this.product);
+             controller.setForm(this.product , this.dealerInfos);
              
              AnchorPane thisAnchor=(AnchorPane)vboxProductDetails.getParent();
              thisAnchor.getChildren().setAll(controller.getVboxBuy());

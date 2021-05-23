@@ -16,6 +16,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
+
 public class index {
 
     @FXML
@@ -143,6 +144,7 @@ public class index {
 
 	public void setTxtLoginPass(String txtLoginPass) {
 		this.txtLoginPass.setText(txtLoginPass);
+
 	}
 	
 
@@ -150,5 +152,9 @@ public class index {
     void initialize() {
        txtLoginMail.setText("umutumut");
        txtLoginPass.setText("umutumut");
+    
+       
+       
+      
     }
 }

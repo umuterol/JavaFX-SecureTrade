@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javax.imageio.ImageIO;
 
 import database.databaseConnect;
+import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,6 +29,7 @@ import javafx.scene.layout.Region;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import model.Product;
+import model.tableMyProduct;
 import model.user;
 
 public class shop {
@@ -63,6 +65,7 @@ public class shop {
     @FXML
     private MenuItem dropdownLogout;
     
+    private ObservableList<Product> datas;
     
     @FXML
     private Circle circleProfileImage;
@@ -75,7 +78,6 @@ public class shop {
 		this.borderPaneShop = borderPaneShop;
 	}
 
-	private Product product;
 
     @FXML
     void btnSearch_Click(ActionEvent event) {
@@ -88,23 +90,17 @@ public class shop {
     @FXML
     void initialize() {
     	
-    	getProduct();
+    	getAllProduct();
         getProfileImageFromUser();
     		
     }
     
-    private void getProduct() {
+    private void getAllProduct() {
     	  int column = 0;
           int row = 1;
-          String [] array= {"Umut","umut","umut","umut"};
-          this.product=new Product();
-          this.product.setName("umut");
-          this.product.setFeatures("test features");
-          this.product.setPrice(1.3);
-         // this.product.setImgSrc("../img/computer.jpg");
-          /*this.product.setFeatures(array);*/
+          datas=new helpers.shop().getAllProduct();
           try {
-              for (int i = 0; i < 10; i++) {
+              for (Product product : datas) {
                   FXMLLoader fxmlLoader = new FXMLLoader();
                   fxmlLoader.setLocation(getClass().getResource("../views/product.fxml"));
                   AnchorPane anchorPane = fxmlLoader.load();
@@ -113,7 +109,7 @@ public class shop {
                   
                 
                   
-                  controller.setData(this.product);
+                  controller.setData(product);
 
                   if (column == 3) {
                       column = 0;

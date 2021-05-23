@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="anchorProductDetails" prefHeight="700.0" prefWidth="573.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.productDetails">
@@ -56,7 +57,7 @@
                   </Button>
                </children>
             </VBox>
-            <TabPane prefHeight="295.0" prefWidth="573.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane prefHeight="295.0" prefWidth="573.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
               <tabs>
                  <Tab text="Ürün Özellikleri">
                      <content>
@@ -73,14 +74,7 @@
                            <children>
                               <HBox layoutX="113.0" layoutY="83.0" prefHeight="266.0" prefWidth="573.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <ImageView fx:id="imgDealer" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../../Pictures/Camera%20Roll/WIN_20210404_12_27_13_Pro.jpg" />
-                                       </image>
-                                       <HBox.margin>
-                                          <Insets left="5.0" top="5.0" />
-                                       </HBox.margin>
-                                    </ImageView>
+                                    <Circle fx:id="circleImgDealer" fill="DODGERBLUE" radius="45.0" stroke="BLACK" strokeType="INSIDE" />
                                     <VBox prefHeight="266.0" prefWidth="198.0">
                                        <children>
                                           <Label fx:id="lblDealerName" text="Umut Can Erol">
@@ -101,6 +95,9 @@
                                        </children>
                                     </VBox>
                                  </children>
+                                 <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </padding>
                               </HBox>
                            </children>
                         </AnchorPane>

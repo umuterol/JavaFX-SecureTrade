@@ -1,6 +1,8 @@
 package controller;
 
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -13,6 +15,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
+import model.Product;
+import model.dealer;
+import model.user;
 
 public class buy {
 
@@ -56,13 +63,13 @@ public class buy {
     private TextField txtBuyClientPhone;
 
     @FXML
-    private ComboBox<?> cbBuyClientCity;
+    private ComboBox<String> cbBuyClientCity;
 
     @FXML
-    private ComboBox<?> cbBuyClientTown;
+    private ComboBox<String> cbBuyClientTown;
 
     @FXML
-    private ComboBox<?> cbBuyClientBranch;
+    private ComboBox<String> cbBuyClientBranch;
 
     @FXML
     private TextField txtBuyClientCardNumber;
@@ -72,6 +79,13 @@ public class buy {
 
     @FXML
     private Button btnBuy;
+    
+    @FXML
+    private Circle circleImgBuyDealer;
+    
+    private Product product;
+    
+    private dealer dealerInfos;
     
     public VBox getVboxBuy() {
 		return vboxBuy;
@@ -95,7 +109,7 @@ public class buy {
             AnchorPane anchorPane = fxmlLoader.load();
 
             productDetails controller = fxmlLoader.getController();
-            //controller.setForm(this.product);
+            controller.setForm(this.product , this.dealerInfos);
 
             AnchorPane thisAnchor=(AnchorPane)vboxBuy.getParent();
             thisAnchor.getChildren().setAll(controller.getVboxProductDetails());
@@ -113,6 +127,61 @@ public class buy {
     @FXML
     void btnBuy_Click(ActionEvent event) {
 
+    }
+    
+    private String getDeliveryDate() {
+ 	   LocalDateTime deliveryDate = LocalDateTime.now().plusDays(5);
+	       DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+	       String deliveryDateFormat = deliveryDate.format(formatter);
+	       
+	       return deliveryDateFormat;
+ }
+    
+    public void setForm(Product product , dealer dealerInfos) {
+    	
+    	this.product=product;
+    	this.dealerInfos=dealerInfos;
+    	
+    	imgBuyProduct.setImage(product.getImg());
+    	lblBuyProductName.setText(product.getName());
+    	lblBuyProductPrice.setText(product.getPrice() + " TL");
+    	
+    	//dealer
+    	lblBuyDealerMail.setText(dealerInfos.getEmail());
+    	lblBuyDealerName.setText(dealerInfos.getName());
+    	lblBuyDealerPhone.setText(dealerInfos .getPhone());
+    	circleImgBuyDealer.setFill(new ImagePattern(dealerInfos.getImg()));
+    	
+    	//client
+    	txtBuyClientName.setText(user.getName());
+    	txtBuyClientPhone.setText(user.getPhone());
+    	
+    }
+    
+    
+    private void getComboBoxCity() {
+    	
+    	cbBuyClientCity.getItems().addAll(new helpers.shop().getAllCity());
+    	
+    }
+    
+    @FXML
+    void initialize() {
+    	getComboBoxCity();
+    }
+    
+    @FXML
+    void cbBuyClientCity_Selected(ActionEvent event) {
+    	String selectedCity=cbBuyClientCity.getSelectionModel().getSelectedItem().toString();
+        cbBuyClientTown.getItems().setAll(new helpers.shop().getAllTown(selectedCity));
+
+    }
+
+    @FXML
+    void cbBuyClientTown_Selected(ActionEvent event) {
+    	String selectedTown=cbBuyClientTown.getSelectionModel().getSelectedItem().toString();
+        cbBuyClientBranch.getItems().setAll(new helpers.shop().getAllBranch(selectedTown));
+        
     }
 
  
