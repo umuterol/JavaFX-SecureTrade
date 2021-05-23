@@ -240,7 +240,7 @@ public class product extends database{
         
         ObservableList<tableMyProduct> selectedMyProduct=FXCollections.observableArrayList();
         if(result) {
-        	Boolean deleteResult=this.deleteMyProduct(id);
+        	Boolean deleteResult=new helpers.product().deleteMyProduct(id);
         	if(deleteResult) {
         	for(tableMyProduct myProduct : myProfileProductSettings.datas) {
         		if(myProduct.getId() == id) {
@@ -261,6 +261,7 @@ public class product extends database{
 			commandParameter=connect.prepareStatement(sql);	
 			
 			commandParameter.setInt(1, id);
+
 			
 			commandParameter.executeUpdate();
 			
@@ -304,7 +305,7 @@ public  boolean isProduct(int id) {
 
 public String productImageUpdate(File file,int id) {
 	
-	if(!this.isProduct(id)) {
+	if(!(new helpers.product().isProduct(id) )) {
 		return "Düzenlemeye çalýþtýðýnýz ürün geçerli deðil";
 	}
 	

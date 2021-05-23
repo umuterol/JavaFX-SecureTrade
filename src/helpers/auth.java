@@ -116,7 +116,7 @@ public class auth extends database {
 			return "Þifre Girin";
 		}
 		
-		if(!this.isUser(email)) {
+		if(!( new helpers.auth().isUser(email) )) {
 			return "Kullanýcý bulunamadý.";
 		}
 		
@@ -225,7 +225,7 @@ public class auth extends database {
 	public String passwordControl(String password) {
 		
 	
-		if(!this.isUser(user.getEmail())) {
+		if(!(new helpers.auth().isUser(user.getEmail()))) {
 			return "Kullanýcý bulunamadý.";
 		}
 		

@@ -185,7 +185,7 @@
                                           <Pane prefHeight="100.0" prefWidth="150.0" />
                                           <ImageView fx:id="tab2ImgProduct" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@../img/computer.jpg" />
+                                                <Image url="@../img/emptyProduct.png" />
                                              </image>
                                           </ImageView>
                                           <VBox prefHeight="100.0" prefWidth="189.0">
@@ -193,7 +193,7 @@
                                                 <HBox prefHeight="79.0" prefWidth="189.0" spacing="5.0">
                                                    <children>
                                                       <Label text="Urun Kodu:" textFill="WHITE" />
-                                                      <Label fx:id="tab2ProductId" textFill="ORANGE" />
+                                                      <Label fx:id="tab2ProductId" text="0" textFill="ORANGE" />
                                                    </children>
                                                 </HBox>
                                                 <Button fx:id="Tab2BtnUploadImage" graphicTextGap="3.0" mnemonicParsing="false" onAction="#Tab2BtnUploadImage_Click" prefHeight="37.0" prefWidth="188.0" style="-fx-background-color: gray;" text="Fotoğraf Yükle" textFill="WHITE">
