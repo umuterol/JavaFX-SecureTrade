@@ -48,7 +48,7 @@ public class product{
               AnchorPane anchorPane = fxmlLoader.load();
               productDetails controller = fxmlLoader.getController();
              
-              dealer dealerInfos=new helpers.shop().getDealer(product.getDealerId());
+              dealer dealerInfos=new helpers.product().getDealer(product.getDealerId());
               
               controller.setForm(this.product,dealerInfos);
  

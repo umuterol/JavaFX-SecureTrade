@@ -43,6 +43,7 @@ public class myOrder {
     @FXML
     private TableColumn<model.myOrder, Double> columnOrderProductPrice;
     
+    
     private ObservableList<model.myOrder> datas;
 
     public VBox getVboxMyOrder() {

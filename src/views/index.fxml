@@ -25,17 +25,17 @@
                      <children>
                         <Label text="G" textFill="#6c82a8">
                            <font>
-                              <Font name="Monospaced Regular" size="96.0" />
+                              <Font name="Monospaced Regular" size="120.0" />
                            </font>
                         </Label>
                         <Label text="E" textFill="#da529fd1">
                            <font>
-                              <Font size="96.0" />
+                              <Font size="60.0" />
                            </font>
                         </Label>
                         <Label text="T" textFill="#21d77cd1">
                            <font>
-                              <Font size="120.0" />
+                              <Font size="96.0" />
                            </font>
                         </Label>
                      </children>

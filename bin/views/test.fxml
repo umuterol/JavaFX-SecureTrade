@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxWidth="735.0" prefHeight="800.0" prefWidth="735.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1">
+   <children>
+      <ScrollPane hbarPolicy="NEVER" layoutX="88.0" layoutY="128.0" prefWidth="549.0">
+         <content>
+            <Pagination fx:id="pagination" pageCount="5" prefHeight="360.0" prefWidth="550.0" />
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

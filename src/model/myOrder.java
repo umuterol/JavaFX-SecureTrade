@@ -5,13 +5,16 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 
-public class myOrder extends Product{
+public class myOrder extends Product {
 	
 	private int orderNo;
 	private String orderDate;
 	private String deliveryDate;
 	private String deliveryAddress;
 	private ImageView imgView;
+	
+	
+	
 	
 	public int getOrderNo() {
 		return orderNo;

@@ -22,12 +22,16 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.scene.control.Label;
 import model.Product;
 import model.tableMyProduct;
 import model.user;
@@ -70,6 +74,7 @@ public class shop {
     @FXML
     private Circle circleProfileImage;
     
+    
     public BorderPane getBorderPaneShop() {
 		return borderPaneShop;
 	}
@@ -79,26 +84,24 @@ public class shop {
 	}
 
 
-    @FXML
-    void btnSearch_Click(ActionEvent event) {
-    	
-
-    }
-    
-  
 
     @FXML
     void initialize() {
     	
-    	getAllProduct();
+    	getAllProduct(new helpers.product().getAllProduct());
         getProfileImageFromUser();
-    		
+          		
     }
     
-    private void getAllProduct() {
+    private void getAllProduct(ObservableList<Product> newDatas) { 
+    	
+    	  gridviewProduct.getChildren().clear();
+    	
     	  int column = 0;
           int row = 1;
-          datas=new helpers.shop().getAllProduct();
+          
+          datas=newDatas;
+          
           try {
               for (Product product : datas) {
                   FXMLLoader fxmlLoader = new FXMLLoader();
@@ -111,11 +114,13 @@ public class shop {
                   
                   controller.setData(product);
 
-                  if (column == 3) {
+                  if (column == 6) {
+                	  row++;
                       column = 0;
-                      row++;
                   }
-
+                  
+                
+                  
                   gridviewProduct.add(anchorPane, column++, row); //(child,column,row)
                   //set grid width
                   gridviewProduct.setMinWidth(Region.USE_COMPUTED_SIZE);
@@ -133,6 +138,7 @@ public class shop {
               e.printStackTrace();
           }
           
+         
     }
     
     
@@ -187,6 +193,42 @@ public class shop {
     
     private void getProfileImageFromUser() {
     	circleProfileImage.setFill(new ImagePattern(user.getImg()));
+    }
+    
+
+    private void getProductWithFilter(String searchData){
+    	if(new helpers.product().getProductWithFilter(searchData) == null) {
+    		productNotFound();
+    		return;
+    	}
+    	this.getAllProduct(new helpers.product().getProductWithFilter(searchData));
+    }
+    
+    private void productNotFound() {
+    	gridviewProduct.getChildren().clear();
+    	
+    	Label message=new Label(" Üzgünüz aradýðýnýz ürünü bulamadýk :(");
+    	message.setPadding(new Insets(10));
+		gridviewProduct.addRow(0,message);
+    }
+    
+    @FXML
+    void txtSearch_Enter(ActionEvent event) {
+    	String search=txtSearch.getText().trim();
+    	this.getProductWithFilter(search);
+    }
+    
+    @FXML
+    void btnSearch_Click(ActionEvent event) {
+    	String search=txtSearch.getText().trim();
+    	this.getProductWithFilter(search);
+    }
+    
+
+    @FXML
+    void home_Click(MouseEvent event) {
+    	getAllProduct(new helpers.product().getAllProduct());
+
     }
    
 }

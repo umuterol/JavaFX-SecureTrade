@@ -1,10 +1,12 @@
 package controller;
 
+
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
+import helpers.Control;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +15,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
@@ -83,6 +86,10 @@ public class buy {
     @FXML
     private Circle circleImgBuyDealer;
     
+    @FXML
+    private Label lblResult;
+
+    
     private Product product;
     
     private dealer dealerInfos;
@@ -126,11 +133,31 @@ public class buy {
 
     @FXML
     void btnBuy_Click(ActionEvent event) {
+    	
+    	String clientName=txtBuyClientName.getText();
+    	String clientPhone=txtBuyClientPhone.getText();
+    	String cardNo=txtBuyClientCardNumber.getText();
+    	String cardCvv=txtBuyClientCardCvv.getText();
+    	String branch=cbBuyClientBranch.getValue();
+    	String deliveryDate=this.getDeliveryDate();
+    	
+       String buyControl= new helpers.buy().insertMyOrder(product, dealerInfos, clientName, clientPhone, branch, cardNo, cardCvv, deliveryDate);
 
+       if(Control.errorControl(buyControl, lblResult)) {
+    	   lblResult.setText("Sipariþiniz alýndý");
+    	   clearBuyInput();
+       }
+       
+    }
+    
+    private void clearBuyInput() {	
+    	txtBuyClientCardNumber.clear();
+    	txtBuyClientCardCvv.clear();
+    	
     }
     
     private String getDeliveryDate() {
- 	   LocalDateTime deliveryDate = LocalDateTime.now().plusDays(5);
+ 	   	   LocalDateTime deliveryDate = LocalDateTime.now().plusDays(5);
 	       DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 	       String deliveryDateFormat = deliveryDate.format(formatter);
 	       
@@ -161,7 +188,7 @@ public class buy {
     
     private void getComboBoxCity() {
     	
-    	cbBuyClientCity.getItems().addAll(new helpers.shop().getAllCity());
+    	cbBuyClientCity.getItems().addAll(new helpers.buy().getAllCity());
     	
     }
     
@@ -173,18 +200,19 @@ public class buy {
     @FXML
     void cbBuyClientCity_Selected(ActionEvent event) {
     	String selectedCity=cbBuyClientCity.getSelectionModel().getSelectedItem().toString();
-        cbBuyClientTown.getItems().setAll(new helpers.shop().getAllTown(selectedCity));
+        cbBuyClientTown.getItems().setAll(new helpers.buy().getAllTown(selectedCity));
 
     }
 
     @FXML
     void cbBuyClientTown_Selected(ActionEvent event) {
     	String selectedTown=cbBuyClientTown.getSelectionModel().getSelectedItem().toString();
-        cbBuyClientBranch.getItems().setAll(new helpers.shop().getAllBranch(selectedTown));
+        cbBuyClientBranch.getItems().setAll(new helpers.buy().getAllBranch(selectedTown));
         
     }
-
- 
+    
+  
+    	
 }
 
 

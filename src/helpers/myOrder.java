@@ -40,7 +40,6 @@ public class myOrder extends database {
 		        order.setImgView(img);
 		        order.setPrice(datas.getInt("product_price"));
 				
-				
 				orderList.add(order);
 			}
 			

@@ -15,6 +15,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import middleWares.alertDialog;
+import model.Product;
+import model.dealer;
 import model.tableMyProduct;
 import model.user;
 
@@ -330,7 +332,141 @@ public String productImageUpdate(File file,int id) {
 		return "Exception";
 	}
 	
+}
 
+
+public ObservableList<Product> getAllProduct() {
+	
+	ObservableList<Product> productList=FXCollections.observableArrayList();
+	
+	sql="select * from product  order by product_publishTime desc";
+	
+	try {
+		
+		commandParameter=connect.prepareStatement(sql);	
+	
+		datas=commandParameter.executeQuery();
+		
+		while(datas.next()) {
+			InputStream inputStream = datas.getBinaryStream("product_image");
+			Image img=new Image(inputStream);
+			
+			
+			Product product=new Product(
+					datas.getInt("product_id"),
+					datas.getInt("user_id"),
+					datas.getDouble("product_price"),
+					datas.getString("product_name"),
+					datas.getString("product_features"),
+					datas.getString("product_publishTime"),
+					img
+					);
+			
+			productList.add(product);
+		}
+		
+		return productList;
+		
+	} catch (Exception e) {
+		// TODO: handle exception
+		throw new Error(e);
+		
+	}	
+	
+}
+
+public ObservableList<Product> getProductWithFilter(String searchData) {
+	
+	ObservableList<Product> productList=FXCollections.observableArrayList();
+	
+	sql="select p.* , c.category_name from product p , category c where p.category_id=c.category_id and "
+			+ "(category_name like ? or product_name like ?) ORDER BY product_publishTime desc";
+	
+	try {
+		
+		commandParameter=connect.prepareStatement(sql);	
+		
+		commandParameter.setString(1,"%"+searchData+"%");
+		commandParameter.setString(2, "%"+searchData+"%");
+	
+		datas=commandParameter.executeQuery();
+		
+		int kontrol=1;
+		while(datas.next()) { 
+			kontrol=0;
+			
+			InputStream inputStream = datas.getBinaryStream("product_image");
+			Image img=new Image(inputStream);
+			
+			
+			Product product=new Product(
+					datas.getInt("product_id"),
+					datas.getInt("user_id"),
+					datas.getDouble("product_price"),
+					datas.getString("product_name"),
+					datas.getString("product_features"),
+					datas.getString("product_publishTime"),
+					img
+					);
+			
+			productList.add(product);
+		}
+		
+		if(kontrol==1) {
+			return null;
+		}
+		
+		return productList;
+		
+	} catch (Exception e) {
+		// TODO: handle exception
+		System.out.print(false);
+		throw new Error(e);
+		
+	}	
+	
+}
+
+public  dealer getDealer(int id) {
+	
+	sql="select  * from user where user_id=?";
+	
+try {
+		
+		commandParameter=connect.prepareStatement(sql);
+		commandParameter.setInt(1, id);
+	
+		
+		datas=commandParameter.executeQuery();
+		
+		if(datas.next()) {
+			InputStream inputStream = datas.getBinaryStream("user_profileImage");
+			Image img;
+
+			if(inputStream !=null && inputStream.available() > 1) {
+				img=new Image(inputStream);
+			
+			}else {
+				img=new Image("/img/defaultProfileImage.png",false);
+			}
+			
+			dealer dealerObject=new dealer();
+			
+			dealerObject.setName(datas.getString("user_name"));
+			dealerObject.setEmail(datas.getString("user_email"));
+			dealerObject.setPhone(datas.getString("user_phone"));
+			dealerObject.setImg(img);
+			
+			return dealerObject;
+		}
+		
+		return null;
+		
+	} catch (Exception e) {
+		// TODO: handle exception
+		throw new Error(e);
+		
+	}	
 	
 }
 	
