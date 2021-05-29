@@ -114,7 +114,7 @@ public class profileSettings {
 
     	File file=filechooser.showOpenDialog(stage);
 
-    	if(file.isFile()) {
+    	if(file != null) {
     		Image img=new Image(file.toURI().toString());
     		imgProfile.setImage(img);
     		

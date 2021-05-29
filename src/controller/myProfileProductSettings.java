@@ -130,7 +130,7 @@ public class myProfileProductSettings {
 
     	File file=filechooser.showOpenDialog(stage);
 
-    	if(file.isFile()) {
+    	if(file != null) {
     		Image img=new Image(file.toURI().toString());
     		tab1ImgProduct.setImage(img);
     	    fileTab1=file;		
@@ -204,7 +204,7 @@ private void updateImageToTab2Table(int id , Image img) {
 
     	File file=filechooser.showOpenDialog(stage);
 
-    	if(file.isFile()) {
+    	if(file != null) {
     		Image img=new Image(file.toURI().toString());
     		tab2ImgProduct.setImage(img);
     		
